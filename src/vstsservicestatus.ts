@@ -36,8 +36,6 @@ export class VstsServiceStatus {
     }
 
     private updateStatus(): void {
-        console.log("run update");
-
         this.serviceStatusQuery.getStatus().then(res => {
             if (res.status.toLowerCase() !== "available") {
                 this.statusBar.displayError(res.message);
