@@ -25,7 +25,12 @@
     ],
     "main": "./out/src/extension",
     "contributes": {
-        "commands": []
+        "commands": [
+            {
+                "command": "extension.openVstsServiceStatusPage",
+                "title": "VSTS Status: Open Service Status Site"
+            }
+        ]
     },
     "scripts": {
         "vscode:prepublish": "tsc -p ./",
@@ -42,6 +47,7 @@
         "vscode": "^1.0.0"
     },
     "dependencies": {
-        "node-fetch": "^1.6.3"
+        "node-fetch": "^1.6.3",
+        "openurl": "^1.1.1"
     }
 }
