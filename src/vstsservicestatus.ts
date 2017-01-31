@@ -37,10 +37,16 @@ export class VstsServiceStatus {
 
     private updateStatus(): void {
         this.serviceStatusQuery.getStatus().then(res => {
-            if (res.status.toLowerCase() !== "available") {
-                this.statusBar.displayError(res.message);
-            } else {
-                this.statusBar.displayOk(res.message);
+            let message = `${res.status.toUpperCase()} ${res.message}`;
+            switch (res.status.toLowerCase()) {
+                case "maintenance":
+                    this.statusBar.displayWarning(message);
+                    break;
+                case "available":
+                    this.statusBar.displayOk(message);
+                    break;
+                default:
+                    this.statusBar.displayError(message);
             }
 
             this.tryStartPeriodicStatusUpdate();

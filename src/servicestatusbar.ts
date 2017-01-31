@@ -13,6 +13,10 @@ export class ServiceStatusBar {
         this.displayStatusBarItem("Fetching status", "octicon-pulse", "extension.openVstsServiceStatusPage");
     }
 
+    public displayWarning(message: string): void {
+        this.displayStatusBarItem(message, "octicon-alert", "extension.openVstsServiceStatusPage");
+    }
+
     public displayError(message: string): void {
         this.displayStatusBarItem(message, "octicon-zap", "extension.openVstsServiceStatusPage");
     }
